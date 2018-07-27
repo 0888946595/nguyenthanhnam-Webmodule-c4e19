@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Hello World</h1>
+        {%if 16 <= bmi <= 18.5 %}
+            <p>Underwieght</p>
+        {%elif 18.5 <= bmi <= 25%}
+            <p>Normal</p>
+        {%elif 25<= bmi <= 30 %}
+            <p>Overweight</p>
+        {%else%}
+            <p>Obsebe</p>
+        {%endif%}
+</body>
+</html>
