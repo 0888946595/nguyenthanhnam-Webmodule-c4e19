@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    
+    <div>
+        <p>Tên: {{service.name}}</p>
+        <p>Công Việc: {{service.job}}</p>
+        <p>Công ty: {{service.company}}</p>
+        <p>Miêu tả: {{service.description}}</p>
+        <p>SDT: {{service.phone}}</p>
+        <p>Tình Trạng: {{"Rảnh" if service.status else "Bận"}}</p>
+        <p>Email: {{service.email}}</p>
+        <p>Số đo 3 vòng: {{service.measurement}}</p>
+            
+    </div>
+
+</body>
+</html>

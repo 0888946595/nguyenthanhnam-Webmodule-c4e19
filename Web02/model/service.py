@@ -1,21 +1,30 @@
 from flask import Flask, render_template
+from random import randint
 from mongoengine import *
+from faker import Faker
+
 import mlab
+
+
 
 app = Flask(__name__)
 
 mlab.connect()
 
 # design database
-class Service(Document):
-    name = StringField()
-    yob = IntField()
-    gender = IntField()
-    height = IntField ()
-    phone = StringField()
-    address = StringField()
-    status = BooleanField()     
+class WarmWinter(Document):
 
+    new_service = Service(
+        name = fake.name(),
+        yob = randint(1990, 2000),
+        gender = randint (0,1),
+        height = randint (150, 190),
+        phone = fake.phone_number(),
+        address = fake.address(),
+        status = choice ([True, False]),
+        company = fake.company()
+    )
+    
 # new_service = Service(
 #     name = "Tuấn Anh",
 #     yob = 1995,
@@ -26,7 +35,7 @@ class Service(Document):
 #     status = False
 # )
 
-# new_service.save()
+new_service.save()
 
 @app.route('/')
 def index():
