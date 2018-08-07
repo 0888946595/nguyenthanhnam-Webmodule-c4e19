@@ -32,11 +32,11 @@ def delete(service_id):
 
 @app.route('/edit/<service_id>', methods = ["GET", "POST"])
 def edit(service_id):
-    
+    service = Service.objects.with_id(service_id)
     if request.method == "GET":
         return render_template('edit.html')
     elif request.method == "POST":
-        service = Service.objects.with_id(service_id)
+        
         form = request.form 
         name = form['name']
         job = form ['job']

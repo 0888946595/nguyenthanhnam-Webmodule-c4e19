@@ -25,6 +25,7 @@ for i in range (50):
         status = choice ([True, False]),
         description = [choice(descrip) for i in range (3)],
         measurement = [choice(measure)for i in range (3)],
+        image = "https://vnn-imgs-f.vgcloud.vn/2018/02/13/09/u23-viet-nam.jpg"
         
 
     )

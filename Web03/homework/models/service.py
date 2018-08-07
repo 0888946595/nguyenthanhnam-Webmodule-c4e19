@@ -9,6 +9,6 @@ class Service(Document):
     job = StringField()
     company = StringField()
     status = BooleanField()
-    image = ImageField()
+    image = StringField()
     description = ListField()
     measurement = ListField()
