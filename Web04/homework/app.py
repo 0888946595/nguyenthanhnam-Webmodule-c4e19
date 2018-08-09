@@ -15,11 +15,17 @@ def index():
     return render_template('index.html', customer = customer)
 
 
-@app.route('/admin')
+@app.route('/admin', methods = ["GET", "POST"])
 def admin():
-    all_admin = Service.objects()
+    if 'logged in' in session:
+        if request.method == 'GET':
+            all_admin = Service.objects()
+            return render_template('admin.html', all_admin = all_admin)
+        elif request.method == 'POST':
+            return redirect (url_for('login'))
 
-    return render_template('admin.html', all_admin = all_admin)
+    else:
+        return redirect(url_for('index'))
    
 @app.route('/delete/<service_id>')
 def delete(service_id):
@@ -76,11 +82,11 @@ def login():
         if result:
             session['logged in'] = True
             return redirect(url_for('index'))
-            if user == "admin" and password == "admin":
-                return redirect (url_for('admin'))
+        elif user == "admin" and password == "admin":
+            session['logged in'] = True
+            return redirect (url_for('admin'))
         
         else:
-            
             return redirect(url_for('signin'))
    
 @app.route('/signin', methods = ["GET", "POST"])
