@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <a href="{{url_for('login')}}">Đăng nhập</a>
+    <a href="{{url_for('signin')}}">Signin</a>
+    {%for service in customer%}
+        <div>
+            
+            {%if service.gender ==1 %}
+                <img src="../static/image/male-profile.jpg" >
+            {%else%}
+                <img src="../static/image/female-profile.jpg">
+            {%endif%}
+            <br>
+            <p>Tên: {{service.name}}</p>
+            <p>Công Việc: {{service.job}}</p>
+            <p>Miêu tả: {{service.description}}</p>
+            <p>{{service.image}}</p>
+        </div>
+        <a href="{{url_for('detail', service_id = service.id)}}">Chi Tiết</a>
+    {%endfor%}
+    
+</body>
+</html>
