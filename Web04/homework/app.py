@@ -1,6 +1,7 @@
 from flask import *
-from models.service import Service, User
+from models.service import *
 from tkinter import *
+import datetime
 
 import mlab 
 
@@ -64,8 +65,12 @@ def edit(service_id):
 
 @app.route('/detail/<service_id>')
 def detail(service_id):
-    service = Service.objects.with_id(service_id)
-    return render_template('detail.html', service = service)
+    if 'logged in' in session:
+        session ['logged in'] = True
+        service = Service.objects.with_id(service_id)
+        return render_template('detail.html', service = service)
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/login/', methods = ['GET', 'POST'])
 def login():
@@ -76,7 +81,6 @@ def login():
         user = form['username']
         password = form['password']
         id = User.objects()
-        
         query = id(username = user, password = password)
         result = query()
         if result:
@@ -85,7 +89,7 @@ def login():
         elif user == "admin" and password == "admin":
             session['logged in'] = True
             return redirect (url_for('admin'))
-        
+            
         else:
             return redirect(url_for('signin'))
    
@@ -111,5 +115,20 @@ def signin():
 def logout():
     del session['logged in']
     return redirect(url_for('index'))
+
+@app.route('/order/<service_id>')
+def order(service_id):
+    if "logged in" in session:
+        new_order = Order(
+            service_id = service_id,
+            user_id = session['logged in'],
+            time = datetime.datetime.now,
+            is_accept = False     
+        )
+        new_order.save()
+        return ("Đã gửi yêu cầu")
+    else:
+        return ("Đăng nhập") 
+    
 if __name__ == '__main__':
   app.run(debug=True)

@@ -1,8 +1,9 @@
-from models.service import Service, User
+from models.service import *
 import mlab
 from faker import Faker
 from random import randint,choice, sample
 from PIL import Image
+import datetime
 
 from pymongo import *
 
@@ -25,10 +26,19 @@ for i in range (50):
         status = choice ([True, False]),
         description = [choice(descrip) for i in range (3)],
         measurement = [choice(measure)for i in range (3)],
-        image = "https://vnn-imgs-f.vgcloud.vn/2018/02/13/09/u23-viet-nam.jpg"
-        
+        image = "https://vnn-imgs-f.vgcloud.vn/2018/02/13/09/u23-viet-nam.jpg",
+        # orders = choice([True, False])
 
     )
+
+    new_order = Order(
+        user_id = User.objects(),
+        service_id = Service.objects(),            
+        time = datetime.datetime.now,
+        is_accept = False
+    )
+
+    new_order.save()
     
     new_service.save()
 
