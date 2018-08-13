@@ -1,0 +1,48 @@
+.text-success{
+    color: red;
+
+}
+
+.text-center{
+    text-align: center;
+}
+
+.bg-green{
+    background-color: green;
+}
+
+.w-100px{
+    width: 200px;
+}
+
+.h-100px{
+    height: 200px;
+}
+
+.bg-red{
+    background-color: red;
+}
+
+.d-inlineblock{
+    display: inline-block;
+}
+
+.w-50px{
+    width: 50%;
+}
+
+#box-model{
+    /* width - Style - Color */
+    border: 2px solid red;
+    /* Top - Right - Bottom - Left */
+    margin: 10px 40px;
+    /* Top - Right - Bottom - Left */
+    padding: 5px 10px 15px 20px;
+
+}
+
+#inner-div{
+    width: 20%;
+    height: 20%;
+    background-color: lightblue;
+}

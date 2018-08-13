@@ -18,7 +18,7 @@ def index():
 
 @app.route('/admin', methods = ["GET", "POST"])
 def admin():
-    if 'logged in' in session:
+    if 'logged_in' in session:
         if request.method == 'GET':
             all_admin = Service.objects()
             return render_template('admin.html', all_admin = all_admin)
@@ -80,14 +80,14 @@ def login():
         form = request.form
         user = form['username']
         password = form['password']
-        id = User.objects()
-        query = id(username = user, password = password)
-        result = query()
+        # id = User.objects()
+        # query = id(username = user, password = password)
+        result = User.objects(username =user, password = password)
         if result:
-            session['logged in'] = True
+            session['logged in'] = False
             return redirect(url_for('index'))
         elif user == "admin" and password == "admin":
-            session['logged in'] = True
+            session['logged_in'] = True
             return redirect (url_for('admin'))
             
         else:
@@ -113,14 +113,18 @@ def signin():
 
 @app.route('/logout')
 def logout():
-    del session['logged in']
-    return redirect(url_for('index'))
-
+    if "logged_in" in session:
+        del session['logged_in']
+        return redirect(url_for('index'))
+    elif "logged in" in session:
+        del session['logged in']
+        return redirect(url_for('index'))
 @app.route('/order/<service_id>')
 def order(service_id):
+
     if "logged in" in session:
         new_order = Order(
-            service_id = service_id,
+            service_id = Service.objects.with_id(service_id),
             user_id = session['logged in'],
             time = datetime.datetime.now,
             is_accept = False     
@@ -129,6 +133,12 @@ def order(service_id):
         return ("Đã gửi yêu cầu")
     else:
         return ("Đăng nhập") 
-    
+
 if __name__ == '__main__':
   app.run(debug=True)
+
+
+
+# session['logged_in'] = True
+
+# session['us']

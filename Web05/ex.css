@@ -1,0 +1,65 @@
+.bg-green{
+    background-color: lightblue;
+}
+
+.bg-red{
+    background-color: lightpink;
+}
+
+.bg-yellow{
+    background-color: yellowgreen;
+}
+
+.bg-pink{
+    background-color: lightpink;
+}
+.w-100px{
+    width: 100%;
+}
+
+.h-100px{
+    height: 700px;
+}
+
+.w-50px{
+    width: 200px;
+}
+
+.h-50px{
+    height: 200px;
+}
+
+.w-1091{
+    width: 1091px;
+}
+.box-model{
+    border: 2px solid lightsalmon;
+    margin: 10px 40px;
+    padding: 10px 40px;
+}
+
+.f-right{
+    float: right;
+}
+
+.f-bottem{
+    float: bottom;
+}
+
+.f-center{
+    float: center;
+}
+
+.d-inlineblock{
+    display: inline-block;
+}
+
+#inner-div{
+    width: 200px;
+    height: 50px;
+    background-color: red;
+}
+
+#inner-div{
+
+}
