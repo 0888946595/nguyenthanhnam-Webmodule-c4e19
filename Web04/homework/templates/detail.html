@@ -22,11 +22,8 @@
         <p>Tình Trạng: {{"Rảnh" if service.status else "Bận"}}</p>
         <p>Email: {{service.email}}</p>
         <p>Số đo 3 vòng: {{service.measurement}}</p>
-        <p>
-            <a href="{{url_for('order', service_id=service.id)}}">Yêu cầu dịch vụ</a>
-        </p>
-        <br>
-        <a href="{{url_for('index')}}">Trang chủ</a>
+        
+            
     </div>
 
 </body>

@@ -72,9 +72,9 @@
 }
 
 .c-orange{
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: red;
-    width: 270px;
+    width: 100px;
     height: 50px;
 }
 
