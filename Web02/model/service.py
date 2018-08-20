@@ -14,7 +14,7 @@ mlab.connect()
 # design database
 class WarmWinter(Document):
 
-    new_service = Service(
+    new_service = WarmWinter(
         name = fake.name(),
         yob = randint(1990, 2000),
         gender = randint (0,1),

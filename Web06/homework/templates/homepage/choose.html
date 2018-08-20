@@ -1,0 +1,35 @@
+<div>
+        <br>
+        <h2 class="text-center font-anton">Chào mừng bạn đến với Mùa Đông Không Lạnh</h2>
+        <br>
+        <p class="text-center font-italic font-anton">"Chúng tôi ở đây là để giúp bạn có mối quan hệ tốt đẹp hơn với gia đình và người thân trong khi vẫn giữ được sự riêng tư và tự do,
+            cũng như quyết định của bạn"
+        </p>
+        <br>
+    
+    <div class="btn-group d-flex justify-content-around" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-light">
+            
+            <div class="card text-white">
+                <a href="{{url_for('search',g = 1)}}">
+                    <img src="../../static/image/male.jpg" alt="Card image" class="card-img">
+                    <div class="d-flex align-items-center card-img-overlay">
+                        <h3 class="font-bold text-center text-light card-link">Bạn là Nữ</h3>
+                        
+                    </div>
+                </a>
+            </div>
+        </button>
+        <button type="button" class="btn btn-light">
+            <div class="card text-white">
+                <a href="{{url_for('search',g = 0)}}">
+                    <img src="../../static/image/female.jpg" alt="Card image" class="card-img">
+                    <div class="d-flex align-items-center card-img-overlay">
+                        <h3 class="container font-bold text-light text-right">Bạn là Nam</h3>
+                    </div>
+                </a>
+            </div>    
+        </button>
+        
+    </div>
+          

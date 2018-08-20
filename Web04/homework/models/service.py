@@ -3,6 +3,8 @@ from random import choice
 from PIL import Image
 class Service(Document):
     name = StringField()
+    yob = StringField()
+    address = StringField()
     gender = IntField()
     email = EmailField()
     phone = StringField()

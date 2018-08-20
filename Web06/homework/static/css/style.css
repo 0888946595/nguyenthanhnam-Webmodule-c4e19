@@ -6,3 +6,16 @@
     font-family: 'Anton', sans-serif;
 }
 
+.bg-img{
+    position: relative;
+    background-image: url('../image/slide3.jpg');
+    height: 1920px;
+    width: 1080px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.d-5{
+    font-size: 28px;
+}
